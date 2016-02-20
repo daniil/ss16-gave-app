@@ -55,6 +55,7 @@ export function getWishlist(id) {
 export function addWishlistItem(wishlistId, payload) {
   return (dispatch) => {
     fbRef.child(`wishlists/${wishlistId}/items`).push(payload);
+    dispatch(getWishlist(wishlistId));
   };
 }
 

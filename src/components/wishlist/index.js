@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getWishlist, addWishlistItem } from 'actions/app-actions';
+import WishlistItems from 'components/wishlist/wishlist-items';
 
 class Wishlist extends Component {
   componentDidMount() {
@@ -28,6 +29,10 @@ class Wishlist extends Component {
                  placeholder="Add a new wishlist item"
                  onKeyPress={::this.onItemAdd} />
         </form>
+        {
+          app.currentWishlist &&
+          <WishlistItems items={app.currentWishlist.items} />
+        }
       </div>
     );
   }

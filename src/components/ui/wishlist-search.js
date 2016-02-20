@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-class UserSearch extends Component {
+class WishlistSearch extends Component {
   render() {
     return (
       <div>
@@ -17,10 +17,10 @@ class UserSearch extends Component {
   }
 
   onSearch(e) {
-    const { onUserSearch } = this.props;
+    const { onWishlistSearch } = this.props;
 
     if (e && e.which === 13) {
-      onUserSearch(this.refs.searchByNumber.value);
+      onWishlistSearch(this.refs.searchByNumber.value);
       e.preventDefault();
     }
   }
@@ -34,4 +34,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(UserSearch);
+export default connect(mapStateToProps)(WishlistSearch);

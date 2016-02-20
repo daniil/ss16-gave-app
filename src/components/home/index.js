@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { routeActions } from 'react-router-redux';
 import { bootstrapApp, loginUser, logoutUser } from 'actions/app-actions';
-import UserSearch from 'components/ui/user-search';
+import WishlistSearch from 'components/ui/wishlist-search';
 
 class Home extends Component {
   componentDidMount() {
@@ -25,7 +25,7 @@ class Home extends Component {
         }
         {
           app.isAuthenticated &&
-          <UserSearch onUserSearch={::this.onUserSearch} />
+          <WishlistSearch onWishlistSearch={::this.onWishlistSearch} />
         }
         {
           app.isAuthenticated &&
@@ -49,7 +49,7 @@ class Home extends Component {
     dispatch(logoutUser());
   }
 
-  onUserSearch(val) {
+  onWishlistSearch(val) {
     const { dispatch } = this.props;
     dispatch(routeActions.push(`/wishlists/${val}`));
   }
