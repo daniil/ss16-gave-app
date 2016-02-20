@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bootstrapApp, loginUser, logoutUser } from 'actions/app-actions';
+import UserSearch from 'components/ui/user-search';
 
 class Home extends Component {
   componentDidMount() {
@@ -20,6 +21,10 @@ class Home extends Component {
             <i className="fa fa-facebook-square"></i>
             Login with Facebook
           </button>
+        }
+        {
+          app.isAuthenticated &&
+          <UserSearch />
         }
         {
           app.isAuthenticated &&

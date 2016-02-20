@@ -16,7 +16,7 @@ const actionHandlers = {
       loggedInUser: action.payload
     });
   },
-  [LOGOUT_SUCCESS]: (state, action) => {
+  [LOGOUT_SUCCESS]: (state) => {
     return Object.assign({}, state, {
       isAuthenticated: false,
       loggedInUser: null

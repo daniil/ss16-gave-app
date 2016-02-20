@@ -8,6 +8,7 @@ import configureStore from './store/configureStore';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import App from './containers/App';
 import Home from './components/home';
+import UserPage from './components/user-page';
 
 const store = configureStore();
 
@@ -16,6 +17,7 @@ render(
     <Router history={browserHistory}>
       <Route path="/" component={App}>
         <IndexRoute component={Home} />
+        <Route path="/users/:userId" component={UserPage} />
       </Route>
     </Router>
   </Provider>,
