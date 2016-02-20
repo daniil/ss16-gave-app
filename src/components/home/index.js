@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { routeActions } from 'react-router-redux';
 import { bootstrapApp, loginUser, logoutUser } from 'actions/app-actions';
 import WishlistSearch from 'components/ui/wishlist-search';
+import baseStyles from 'styles/base.scss';
+import classnames from 'classnames';
 
 class Home extends Component {
   componentDidMount() {
@@ -17,7 +19,12 @@ class Home extends Component {
       <div>
         {
           !app.isAuthenticated &&
-          <button className="pure-button pure-button-primary"
+          <button className={classnames(
+                    'pure-button',
+                    'pure-button-primary',
+                    baseStyles.pureButton,
+                    baseStyles.pureButtonPrimary
+                  )}
                   onClick={::this.onLogin}>
             <i className="fa fa-facebook-square"></i>
             Login with Facebook
