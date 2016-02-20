@@ -15,3 +15,20 @@ html {
   color: $primary-text;
   font-family: 'Open Sans', sans-serif;
 }
+
+
+html, body {
+  width:100%;
+  background:#eceff6;
+}
+
+
+
+// Pure Resets
+.pureButtonPrimary {
+  background:#50a2d4;
+}
+
+.pureButton {
+  background:#50a2d4;
+}
