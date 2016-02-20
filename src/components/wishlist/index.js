@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getWishlist, addWishlistItem } from 'actions/app-actions';
-import WishlistItems from 'components/wishlist/wishlist-items';
+import WishlistItems from './wishlist-items';
 
 class Wishlist extends Component {
   componentDidMount() {
