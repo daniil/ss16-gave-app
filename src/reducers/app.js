@@ -1,16 +1,25 @@
 import createReducer from '../utils/create-reducer';
 import {
-  BOOTSTRAP_APP
+  LOGIN_SUCCESS,
+  LOGOUT_SUCCESS
 } from 'actions/app-actions';
 
 const initialState = {
-  isBootstrapped: false
+  isAuthenticated: false,
+  loggedInUser: null
 };
 
 const actionHandlers = {
-  [BOOTSTRAP_APP]: (state, action) => {
+  [LOGIN_SUCCESS]: (state, action) => {
     return Object.assign({}, state, {
-      isBootstrapped: true
+      isAuthenticated: true,
+      loggedInUser: action.payload
+    });
+  },
+  [LOGOUT_SUCCESS]: (state, action) => {
+    return Object.assign({}, state, {
+      isAuthenticated: false,
+      loggedInUser: null
     });
   }
 };
