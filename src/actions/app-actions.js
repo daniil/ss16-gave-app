@@ -1,4 +1,5 @@
 import Firebase from 'firebase';
+import { routeActions } from 'react-router-redux';
 
 const fbRef = new Firebase('https://ss16-gave-app.firebaseio.com/');
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
@@ -14,6 +15,8 @@ export function bootstrapApp() {
         type: LOGIN_SUCCESS,
         payload: authData
       });
+    } else {
+      dispatch(logoutUser());
     }
   };
 }
@@ -38,6 +41,7 @@ export function logoutUser() {
     dispatch({
       type: LOGOUT_SUCCESS
     });
+    dispatch(routeActions.push('/'));
   };
 }
 
