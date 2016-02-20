@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { routeActions } from 'react-router-redux';
 import { bootstrapApp, loginUser, logoutUser } from 'actions/app-actions';
 import UserSearch from 'components/ui/user-search';
 
@@ -24,7 +25,7 @@ class Home extends Component {
         }
         {
           app.isAuthenticated &&
-          <UserSearch />
+          <UserSearch onUserSearch={::this.onUserSearch} />
         }
         {
           app.isAuthenticated &&
@@ -46,6 +47,11 @@ class Home extends Component {
   onLogout() {
     const { dispatch } = this.props;
     dispatch(logoutUser());
+  }
+
+  onUserSearch(val) {
+    const { dispatch } = this.props;
+    dispatch(routeActions.push(`/wishlists/${val}`));
   }
 }
 
