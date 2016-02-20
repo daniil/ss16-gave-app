@@ -22,11 +22,17 @@ html, body {
   background:#eceff6;
 }
 
+// resets
+
 h1 {
   margin:0;
   padding:0;
 }
 
+
+input[type="text"] {
+  color:#333
+}
 
 
 // Pure Resets
@@ -37,7 +43,6 @@ h1 {
 .pureButton {
   background:#50a2d4;
 }
-
 
 .header {
   background:#464652;

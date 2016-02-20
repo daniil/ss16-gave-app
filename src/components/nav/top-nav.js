@@ -10,11 +10,7 @@ export default class TopNav extends Component {
     const { app } = this.props;
 
     return (
-      <div className={
-                  classnames(
-                    baseStyles.topNav
-                  )
-      }>
+      <div className={baseStyles.topNav}>
         {
           !app.isAuthenticated &&
           <button className={
