@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { bootstrapApp } from 'actions/app-actions';
 import TopNav from 'components/nav/top-nav';
 import { routeActions } from 'react-router-redux';
+import baseStyles from 'styles/base.scss';
+import classnames from 'classnames';
 
 class App extends Component {
   componentDidMount() {
@@ -15,10 +17,17 @@ class App extends Component {
 
     return (
       <div>
-        <h1 onClick={::this.goHome}>GaveApp</h1>
-        <TopNav app={app}
-                dispatch={dispatch} />
+        <header className={
+            classnames(
+                    baseStyles.header
+            )
+        }>
+          <h1 onClick={::this.goHome}>GaveApp</h1>
+          <TopNav app={app}
+                  dispatch={dispatch} />
+        </header>
         <div>
+
           {this.props.children}
         </div>
       </div>
