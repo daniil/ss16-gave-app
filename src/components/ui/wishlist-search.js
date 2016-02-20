@@ -1,23 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import styles from './styles.scss';
-import classnames from 'classnames';
 
 class WishlistSearch extends Component {
 
   state = {
-    searchValue : '',
+    searchValue: '',
     validated: true
   };
 
   render() {
-
     return (
-        <div className={classnames(
-               'ffsff',
-               styles.wishlistSearch,
-               {[styles.wishlistSearchNonEmpty]: !!this.state.searchValue}
-             )}>
+        <div>
           <form className="pure-form">
             <input className="pure-input-1"
                    type="text"
@@ -25,29 +18,26 @@ class WishlistSearch extends Component {
                    placeholder="Search by phone number and press Enter"
                    value={this.state.searchValue}
                    onChange={::this.onChangeHandler}
-                    onKeyUp={::this.onKeyUpHandler}/>
+                   onKeyPress={::this.onKeyPressHandler} />
 
           </form>
         </div>
     );
   }
 
-
-  onKeyUpHandler(e) {
+  onKeyPressHandler(e) {
+    const { onWishlistSearch } = this.props;
 
     if (e && e.which === 13) {
       onWishlistSearch(this.state.searchValue);
       e.preventDefault();
     }
-
   }
 
   onChangeHandler(e) {
-
     this.setState({
-      searchValue: e.target.value.replace(/\D/g,'')
+      searchValue: e.target.value.replace(/\D/g, '')
     });
-
   }
 
 }
