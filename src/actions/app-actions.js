@@ -3,6 +3,7 @@ import Firebase from 'firebase';
 const fbRef = new Firebase('https://ss16-gave-app.firebaseio.com/');
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
+export const RECEIVE_WISHLIST = 'RECEIVE_WISHLIST';
 
 export function bootstrapApp() {
   return (dispatch) => {
@@ -37,6 +38,24 @@ export function logoutUser() {
     dispatch({
       type: LOGOUT_SUCCESS
     });
+  };
+}
+
+export function getWishlist(id) {
+  return (dispatch) => {
+    fbRef.child(`wishlists/${id}`).once('value', (snap) => {
+      dispatch({
+        type: RECEIVE_WISHLIST,
+        payload: snap.val()
+      });
+    });
+  };
+}
+
+export function addWishlistItem(wishlistId, payload) {
+  return (dispatch) => {
+    fbRef.child(`wishlists/${wishlistId}/items`).push(payload);
+    dispatch(getWishlist(wishlistId));
   };
 }
 
