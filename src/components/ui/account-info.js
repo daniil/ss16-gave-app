@@ -20,7 +20,6 @@ export default class AccountInfo extends Component {
                className={styles.logoutLink}
                onClick={onLogout}>
               Logout
-              <i className="fa fa-sign-out"></i>
             </a>
           </div>
         }
