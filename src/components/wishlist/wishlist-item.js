@@ -9,27 +9,27 @@ export default class WishlistItem extends Component {
 
     return (
         <li>
-                <span>{item.title}</span>
+            <span>{item.title}</span>
+            <span className={classnames(styles.actions)}>
                 <span className={styles.voteCountCell}>
-                    <span className={styles.voteCount}>
-                        {item.voteCount}
-                    </span>
+                    <span className={styles.voteCount}>{item.voteCount}</span>
                 </span>
                 <span>
                     <i className={classnames(
-               'fa',
-               'fa-heart',
-               {[styles.alreadyVoted]: !item.voters[user.uid]}
-             )}
-             onClick={() => { this.onVoteUp(item.key); }}></i>
+                    'fa',
+                    'fa-heart',
+                    {[styles.alreadyVoted]: !item.voters[user.uid]}
+                    )}
+                    onClick={() => { this.onVoteUp(item.key); }}></i>
                 </span>
-            <span>
-              {
-                statusTypes && <StatusPicker item={item}
-                                             user={user}
-                                             statusTypes={statusTypes}
-                                             onStatusChange={onStatusChange} />
-              }
+                <span>
+                {
+                    statusTypes && <StatusPicker item={item}
+                    user={user}
+                    statusTypes={statusTypes}
+                    onStatusChange={onStatusChange} />
+                }
+                </span>
             </span>
       </li>
     );
