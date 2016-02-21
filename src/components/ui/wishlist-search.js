@@ -18,7 +18,6 @@ class WishlistSearch extends Component {
         <div>
           <form className="pure-form pure-form-stacked pure-g">
             <div className="pure-u-22-24">
-              <label htmlFor="phoneNumber">Phone Number</label>
               <input id="phoneNumber"
                      className="pure-input-1"
                      type="text"

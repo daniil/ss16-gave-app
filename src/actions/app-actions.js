@@ -18,6 +18,11 @@ export function bootstrapApp() {
     } else {
       dispatch(logoutUser());
     }
+    fbRef.child('status').set({
+      0: 'for grabs',
+      1: 'dibbs',
+      2: 'taken'
+    });
   };
 }
 
@@ -71,7 +76,7 @@ export function voteUp(wishlistId, userId, wishlistItemKey) {
         voteCount: snap.val().voteCount + 1
       });
       fbRef.child(currItem).child('voters').update({
-        [userId]: true
+        [userId]: Date.now()
       });
       dispatch(getWishlist(wishlistId));
     });

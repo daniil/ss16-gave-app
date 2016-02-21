@@ -42,6 +42,8 @@ export default class WishlistItems extends Component {
       }
     }
 
+    itemsArr.sort((a, b) => { return b.voteCount - a.voteCount; });
+
     return itemsArr;
   }
 }

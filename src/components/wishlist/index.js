@@ -55,8 +55,9 @@ class Wishlist extends Component {
         voteCount: 1,
         status: 0,
         voters: {
-          [app.loggedInUser.uid]: true
-        }
+          [app.loggedInUser.uid]: Date.now()
+        },
+        dateCreated: Date.now()
       }));
       this.refs.wishlistItem.value = '';
       e.preventDefault();
