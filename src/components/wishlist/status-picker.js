@@ -20,10 +20,12 @@ export default class StatusPicker extends Component {
                 {
                   item.status === i
                   ? statusType
-                  : <a href="#"
-                       onClick={(e) => { this.onStatusChange(e, i); }}>
-                      {statusType}
-                    </a>
+                  : this.isStatusChangeAllowed()
+                    ? <a href="#"
+                         onClick={(e) => { this.onStatusChange(e, i); }}>
+                         {statusType}
+                      </a>
+                    : statusType
                 }
               </span>
             );
@@ -37,6 +39,20 @@ export default class StatusPicker extends Component {
     const { item, onStatusChange } = this.props;
     onStatusChange(item.key, statusId);
     e.preventDefault();
+  }
+
+  isStatusChangeAllowed() {
+    const { item, user } = this.props;
+
+    if (typeof item.statusOwner === 'undefined') {
+      return true;
+    }
+
+    if (item.statusOwner === user.uid) {
+      return true;
+    }
+
+    return false;
   }
 
   convertItemsToArr(items) {

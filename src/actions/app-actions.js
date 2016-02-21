@@ -80,6 +80,19 @@ export function voteUp(wishlistId, userId, wishlistItemKey) {
   };
 }
 
+export function changeWishlistItemStatus(wishlistId, userId, wishlistItemKey, statusId) {
+  return (dispatch) => {
+    const currItem = `wishlists/${wishlistId}/items/${wishlistItemKey}`;
+    fbRef.child(currItem).once('value', (snap) => {
+      fbRef.child(currItem).update({
+        status: statusId,
+        statusOwner: (statusId !== 0) ? userId : null
+      });
+      dispatch(getWishlist(wishlistId));
+    });
+  };
+}
+
 function saveUser(authData) {
   fbRef.child(`users/${authData.uid}`).set(authData.facebook);
 }

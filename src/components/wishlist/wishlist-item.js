@@ -28,6 +28,7 @@ export default class WishlistItem extends Component {
         <td>
           {
             statusTypes && <StatusPicker item={item}
+                                         user={user}
                                          statusTypes={statusTypes}
                                          onStatusChange={onStatusChange} />
           }

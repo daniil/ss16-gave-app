@@ -28,11 +28,11 @@
   color: #B6B6B6;
 
   > a {
-    color: #B6B6B6;
+    color: #464652;
     text-decoration: none;
 
     &:hover {
-      color: darken(#B6B6B6, 20%);
+      color: darken(#464652, 20%);
     }
   }
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getWishlist, addWishlistItem, voteUp } from 'actions/app-actions';
+import { getWishlist, addWishlistItem, voteUp, changeWishlistItemStatus } from 'actions/app-actions';
 import WishlistItems from './wishlist-items';
 import styles from './styles.scss';
 
@@ -8,6 +8,13 @@ class Wishlist extends Component {
   componentDidMount() {
     const { dispatch, params } = this.props;
     dispatch(getWishlist(params.wishlistId));
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { dispatch, params } = this.props;
+    if (params.wishlistId !== nextProps.params.wishlistId) {
+      dispatch(getWishlist(nextProps.params.wishlistId));
+    }
   }
 
   render() {
@@ -72,7 +79,13 @@ class Wishlist extends Component {
   }
 
   onStatusChange(wishlistItemKey, statusId) {
-    console.log('::STATUS CHANGE', wishlistItemKey, statusId)
+    const { dispatch, app } = this.props;
+    dispatch(changeWishlistItemStatus(
+      this.props.params.wishlistId,
+      app.loggedInUser.uid,
+      wishlistItemKey,
+      statusId
+    ));
   }
 }
 
