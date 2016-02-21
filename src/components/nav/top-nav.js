@@ -11,6 +11,7 @@ export default class TopNav extends Component {
 
     return (
       <div className={baseStyles.topNav}>
+        <h1>GaveApp</h1>
         {
           !app.isAuthenticated &&
           <button className={

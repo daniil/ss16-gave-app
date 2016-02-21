@@ -21,7 +21,6 @@ class App extends Component {
         <header className={classnames(
                   baseStyles.header
                 )}>
-          <h1 onClick={::this.goHome}>GaveApp</h1>
           <AccountInfo app={app}
                        onLogout={::this.onLogout} />
           <TopNav app={app}

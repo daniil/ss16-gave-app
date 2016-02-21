@@ -16,6 +16,8 @@ class WishlistSearch extends Component {
   render() {
     return (
         <div>
+          <h2>Find a friend's gifts list</h2>
+          <h6>if your friend has a gift list, you can find it by searching</h6>
           <form className="pure-form pure-form-stacked pure-g">
             <div className="pure-u-22-24">
               <input id="phoneNumber"
