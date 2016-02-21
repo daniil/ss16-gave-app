@@ -31,9 +31,8 @@ class Wishlist extends Component {
         </h2>
         {
           !app.currentWishlist &&
-          <div>
-            <p>No items for {params.wishlistId}</p>
-            <p>Be the first to add one below</p>
+          <div className={styles.noItemsCopy}>
+            <p>No items for <strong>{params.wishlistId}</strong>, be the first to add one below</p>
           </div>
         }
         <form className={classnames("pure-form", styles.addNewForm)}>
