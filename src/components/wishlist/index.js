@@ -38,6 +38,7 @@ class Wishlist extends Component {
         {
           app.currentWishlist &&
           <WishlistItems items={app.currentWishlist.items}
+                         statusTypes={app.statusTypes}
                          user={app.loggedInUser}
                          onVoteUp={::this.onVoteUp} />
         }

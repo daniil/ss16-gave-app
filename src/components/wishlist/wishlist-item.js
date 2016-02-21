@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import styles from './styles.scss';
 import classnames from 'classnames';
+import StatusPicker from './status-picker';
 
 export default class WishlistItem extends Component {
   render() {
-    const { item, user, onVoteUp } = this.props;
+    const { item, statusTypes, user, onVoteUp } = this.props;
 
     return (
       <tr>
@@ -23,6 +24,12 @@ export default class WishlistItem extends Component {
                {[styles.alreadyVoted]: !item.voters[user.uid]}
              )}
              onClick={() => { this.onVoteUp(item.key); }}></i>
+        </td>
+        <td>
+          {
+            statusTypes && <StatusPicker item={item}
+                                         statusTypes={statusTypes} />
+          }
         </td>
       </tr>
     );
