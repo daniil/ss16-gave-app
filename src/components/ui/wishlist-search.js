@@ -17,17 +17,19 @@ class WishlistSearch extends Component {
     let formStyle = {
       'position' : 'relative',
       'margin' : '20px auto',
-      'width': '85%'
+      'width': '75%'
     };
 
     return (
         <div className={classnames(styles.wishlistSearchContainer)}>
           <h2>Find a friend's gifts list</h2>
-          <h6>if your friend has a gift list, you can find it by searching</h6>
           <form className="pure-form pure-form-stacked pure-g" style={formStyle}>
             <div className="pure-u-1">
               <input id="phoneNumber"
-                     className="pure-input-1"
+                     className={classnames(
+                       'pure-input-1',
+                       styles.numberSearch
+                     )}
                      type="text"
                      ref="searchByNumber"
                      placeholder="Search by phone number"
@@ -50,7 +52,7 @@ class WishlistSearch extends Component {
             </div>
             <div className="pure-u-1">
               <span className={styles.instructions}>
-                Please enter 5 to 10 digits of the phone number only and press Enter when complete
+                Enter 5 to 10 digits of the phone number and press Enter
               </span>
             </div>
           </form>

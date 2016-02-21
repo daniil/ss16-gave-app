@@ -2,7 +2,7 @@
   text-align: center;
   padding:5px;
   position:absolute;
-  top:-5px;
+  top:5px;
   right:0;
 }
 
@@ -17,6 +17,16 @@
 
 .wishlistSearchContainer {
   padding:2rem;
+
+  > h2 {
+    font-size: 2em;
+  }
+}
+
+.numberSearch {
+  padding: 15px !important;
+  font-size: 20px;
+  font-family: "Courier New",monospace;
 }
 
 .searchStatusValid {
@@ -24,8 +34,12 @@
 }
 
 .instructions {
+  display: block;
   color: #fff;
   font-family: "Courier New",monospace;
+  text-align: center;
+  margin-top: 5px;
+  text-shadow: 0px 1px 0px rgba(0, 0, 0, 1);
 }
 
 .accountInfo {

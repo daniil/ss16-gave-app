@@ -25,8 +25,7 @@ class Home extends Component {
         <div className={styles.welcomePage}>
           <div className={ classnames(styles.homeBannerText)}>
             <h1 className={styles.welcomePageH1}>GaveApp</h1>
-            <p className={ classnames(styles.homeBannerTextp1)}>Be a true BFF</p>
-            <p className={ classnames(styles.homeBannerTextp2)}>Find the <strong>best gifts </strong> for &rsquo;em</p>
+            <p className={ classnames(styles.homeBannerTextp2)}>Art of giving...<strong>simplified</strong></p>
             <button className={
                       classnames(
                         'pure-button',
