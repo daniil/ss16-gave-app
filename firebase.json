@@ -1,0 +1,9 @@
+{
+  "firebase": "ss16-gave-app",
+  "public": "dist",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}
