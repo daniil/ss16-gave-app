@@ -15,21 +15,23 @@ class Home extends Component {
       html = (<p>Welcome back</p>);
     } else {
       html = (
-        <div className={ classnames(styles.homeBannerText)}>
-          <p className={ classnames(styles.homeBannerTextp1)}>Be a true BFF</p>
-          <p className={ classnames(styles.homeBannerTextp2)}>Find the <strong>best gifts </strong> for &rsquo;em</p>
-          <button className={
-                    classnames(
-                      'pure-button',
-                      'pure-button-primary',
-                      baseStyles.pureButton,
-                      baseStyles.pureButtonPrimary
-                    )
-                  }
-                  onClick={::this.onLogin}>
-            <i className="fa fa-facebook-square"></i>
-            Login with Facebook
-          </button>
+        <div className={styles.welcomePage}>
+          <div className={ classnames(styles.homeBannerText)}>
+            <h1 className={styles.welcomePageH1}>GaveApp</h1>
+            <p className={ classnames(styles.homeBannerTextp1)}>Be a true BFF</p>
+            <p className={ classnames(styles.homeBannerTextp2)}>Find the <strong>best gifts </strong> for &rsquo;em</p>
+            <button className={
+                      classnames(
+                        'pure-button',
+                        'pure-button-primary',
+                        baseStyles.pureButtonPrimary
+                      )
+                    }
+                    onClick={::this.onLogin}>
+              <i className="fa fa-facebook-square"></i>
+              <span className={baseStyles.textAfterIcon}>Login with Facebook</span>
+            </button>
+          </div>
         </div>
       );
     }
