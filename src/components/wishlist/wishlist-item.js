@@ -8,32 +8,30 @@ export default class WishlistItem extends Component {
     const { item, statusTypes, user, onVoteUp, onStatusChange } = this.props;
 
     return (
-      <tr>
-        <td>
-          {item.title}
-        </td>
-        <td className={styles.voteCountCell}>
-          <span className={styles.voteCount}>
-            {item.voteCount}
-          </span>
-        </td>
-        <td>
-          <i className={classnames(
+        <li>
+                <span>{item.title}</span>
+                <span className={styles.voteCountCell}>
+                    <span className={styles.voteCount}>
+                        {item.voteCount}
+                    </span>
+                </span>
+                <span>
+                    <i className={classnames(
                'fa',
                'fa-heart',
                {[styles.alreadyVoted]: !item.voters[user.uid]}
              )}
              onClick={() => { this.onVoteUp(item.key); }}></i>
-        </td>
-        <td>
-          {
-            statusTypes && <StatusPicker item={item}
-                                         user={user}
-                                         statusTypes={statusTypes}
-                                         onStatusChange={onStatusChange} />
-          }
-        </td>
-      </tr>
+                </span>
+            <span>
+              {
+                statusTypes && <StatusPicker item={item}
+                                             user={user}
+                                             statusTypes={statusTypes}
+                                             onStatusChange={onStatusChange} />
+              }
+            </span>
+      </li>
     );
   }
 

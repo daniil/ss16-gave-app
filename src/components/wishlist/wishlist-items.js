@@ -7,16 +7,7 @@ export default class WishlistItems extends Component {
     const itemsArr = this.convertItemsToArr(items);
 
     return (
-      <table className="pure-table pure-table-striped">
-        <thead>
-          <tr>
-            <th>Item</th>
-            <th>Votes</th>
-            <th></th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
+        <ul>
           {
             itemsArr.map((item, i) => {
               return (
@@ -29,8 +20,7 @@ export default class WishlistItems extends Component {
               );
             })
           }
-        </tbody>
-      </table>
+      </ul>
     );
   }
 
