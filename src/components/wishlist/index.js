@@ -8,6 +8,7 @@ import classnames from 'classnames';
 class Wishlist extends Component {
   componentDidMount() {
     const { dispatch, params } = this.props;
+    this.refs.wishlistItem.focus();
     dispatch(getWishlist(params.wishlistId));
   }
 

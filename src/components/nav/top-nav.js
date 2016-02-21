@@ -6,7 +6,7 @@ import classnames from 'classnames';
 
 export default class TopNav extends Component {
   render() {
-    const { app } = this.props;
+    const { app, isHomePage } = this.props;
 
     return (
       <div className={classnames(baseStyles.topNav)}>
@@ -14,7 +14,8 @@ export default class TopNav extends Component {
             onClick={::this.goHome}>Gave</h1>
         {
           app.isAuthenticated &&
-          <WishlistSearch onWishlistSearch={::this.onWishlistSearch} />
+          <WishlistSearch onWishlistSearch={::this.onWishlistSearch}
+                          isHomePage={isHomePage} />
         }
       </div>
     );

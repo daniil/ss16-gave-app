@@ -6,7 +6,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/index',
@@ -61,7 +61,8 @@ module.exports = {
           path.join(__dirname, 'styles'),
           path.join(__dirname, 'node_modules')
         ]
-      }
+      },
+      { test: /\.png$/, loader: "url-loader?mimetype=image/png" }
     ]
   }
 };

@@ -10,7 +10,11 @@ class WishlistSearch extends Component {
   };
 
   componentDidMount() {
-    this.refs.searchByNumber.focus();
+    const { isHomePage } = this.props;
+
+    if (isHomePage) {
+      this.refs.searchByNumber.focus();
+    }
   }
 
   render() {
@@ -52,7 +56,7 @@ class WishlistSearch extends Component {
             </div>
             <div className="pure-u-1">
               <span className={styles.instructions}>
-                Enter 5 to 10 digits of the phone number and press Enter
+                Insert the digits of your giftee and press Enter
               </span>
             </div>
           </form>

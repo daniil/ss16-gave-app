@@ -30,7 +30,8 @@ class App extends Component {
           }
 
           <TopNav app={app}
-                  dispatch={dispatch} />
+                  dispatch={dispatch}
+                  isHomePage={location.pathname === '/'} />
         </header>
         <div>
           {this.props.children}
