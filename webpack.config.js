@@ -51,7 +51,8 @@ module.exports = {
           path.join(__dirname, 'styles'),
           path.join(__dirname, 'node_modules')
         ]
-      }
+      },
+      { test: /\.png$/, loader: "url-loader?mimetype=image/png" }
     ]
   }
 };

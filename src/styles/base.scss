@@ -31,7 +31,18 @@ h1, h2, h6 {
 
 label,
 input[type="text"] {
-  color:#333
+  color:#333;
+  background-color:#F1F1F1;
+  text-align:center;
+}
+
+
+.logo {
+  background-image:url('../static/gave_logo.png');
+  background-size:80px 50px;
+  background-position:center;
+  background-repeat:no-repeat;
+  text-indent:9999px;
 }
 
 

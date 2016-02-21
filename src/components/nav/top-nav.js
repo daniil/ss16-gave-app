@@ -11,7 +11,8 @@ export default class TopNav extends Component {
 
     return (
       <div className={baseStyles.topNav}>
-        <h1>GaveApp</h1>
+        <h1 className={ classnames(baseStyles.logo)}>Gave</h1>
+        <img src="./static/gave_logo.png" alt=""/>
         {
           !app.isAuthenticated &&
           <button className={
