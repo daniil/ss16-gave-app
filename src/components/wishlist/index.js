@@ -40,7 +40,8 @@ class Wishlist extends Component {
           <WishlistItems items={app.currentWishlist.items}
                          statusTypes={app.statusTypes}
                          user={app.loggedInUser}
-                         onVoteUp={::this.onVoteUp} />
+                         onVoteUp={::this.onVoteUp}
+                         onStatusChange={::this.onStatusChange} />
         }
       </div>
     );
@@ -68,6 +69,10 @@ class Wishlist extends Component {
   onVoteUp(wishlistItemKey) {
     const { dispatch, app } = this.props;
     dispatch(voteUp(this.props.params.wishlistId, app.loggedInUser.uid, wishlistItemKey));
+  }
+
+  onStatusChange(wishlistItemKey, statusId) {
+    console.log('::STATUS CHANGE', wishlistItemKey, statusId)
   }
 }
 
