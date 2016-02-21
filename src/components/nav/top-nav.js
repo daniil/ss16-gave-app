@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import { loginUser } from 'actions/app-actions';
 import WishlistSearch from 'components/ui/wishlist-search';
 import { routeActions } from 'react-router-redux';
 import baseStyles from 'styles/base.scss';
-import classnames from 'classnames';
 
 export default class TopNav extends Component {
   render() {
@@ -14,31 +12,11 @@ export default class TopNav extends Component {
         <h1 className={ classnames(baseStyles.logo)}>Gave</h1>
         <img src="./static/gave_logo.png" alt=""/>
         {
-          !app.isAuthenticated &&
-          <button className={
-                    classnames(
-                        'pure-button',
-                        'pure-button-primary',
-                        baseStyles.pureButton,
-                        baseStyles.pureButtonPrimary
-                    )
-                  }
-                  onClick={::this.onLogin}>
-            <i className="fa fa-facebook-square"></i>
-            Login with Facebook
-          </button>
-        }
-        {
           app.isAuthenticated &&
           <WishlistSearch onWishlistSearch={::this.onWishlistSearch} />
         }
       </div>
     );
-  }
-
-  onLogin() {
-    const { dispatch } = this.props;
-    dispatch(loginUser());
   }
 
   onWishlistSearch(val) {
