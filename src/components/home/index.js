@@ -5,8 +5,8 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <p>Blurb about how wonderful this app is</p>
-        <p>Probably onboarding copy goes here</p>
+        <p>Be a true BFF</p>
+        <p>Find the best gifts for 'em</p>
       </div>
     );
   }

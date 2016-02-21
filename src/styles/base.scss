@@ -13,13 +13,12 @@
 
 html {
   color: $primary-text;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Courier New', monospace;
 }
 
 
 html, body {
   width:100%;
-  background:#eceff6;
 }
 
 // resets
@@ -45,8 +44,6 @@ input[type="text"] {
 }
 
 .header {
-  background:#464652;
-  color:#fff;
   padding: 2rem 0 0 0;
 }
 
