@@ -1,6 +1,9 @@
 .searchStatusIcon {
   text-align: center;
   padding:5px;
+  position:absolute;
+  top:-5px;
+  right:0;
 }
 
 .searchStatus {
@@ -21,7 +24,8 @@
 }
 
 .instructions {
-  color: #4CAF50;
+  color: #fff;
+  font-family: "Courier New",monospace;
 }
 
 .accountInfo {

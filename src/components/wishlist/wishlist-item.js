@@ -18,6 +18,7 @@ export default class WishlistItem extends Component {
                     <i className={classnames(
                     'fa',
                     'fa-heart',
+                    styles.voteHeart,
                     {[styles.alreadyVoted]: !item.voters[user.uid]}
                     )}
                     onClick={() => { this.onVoteUp(item.key); }}></i>
