@@ -63,6 +63,21 @@ export function addWishlistItem(wishlistId, payload) {
   };
 }
 
+export function voteUp(wishlistId, userId, wishlistItemKey) {
+  return (dispatch) => {
+    const currItem = `wishlists/${wishlistId}/items/${wishlistItemKey}`;
+    fbRef.child(currItem).once('value', (snap) => {
+      fbRef.child(currItem).update({
+        voteCount: snap.val().voteCount + 1
+      });
+      fbRef.child(currItem).child('voters').update({
+        [userId]: true
+      });
+      dispatch(getWishlist(wishlistId));
+    });
+  };
+}
+
 function saveUser(authData) {
   fbRef.child(`users/${authData.uid}`).set(authData.facebook);
 }

@@ -1,13 +1,28 @@
 import React, { Component } from 'react';
+import styles from './styles.scss';
 
 export default class WishlistItem extends Component {
   render() {
-    const { item } = this.props;
+    const { item, user, onVoteUp } = this.props;
 
     return (
-      <div>
-        {item.title} Votes: {item.voteCount}
-      </div>
+      <tr>
+        <td>
+          {item.title}
+        </td>
+        <td className={styles.voteCountCell}>
+          <span className={styles.voteCount}>
+            {item.voteCount}
+          </span>
+        </td>
+        <td>
+          {
+            !item.voters[user.uid] &&
+            <i className="fa fa-thumbs-up"
+               onClick={() => { onVoteUp(item.key); }}></i>
+          }
+        </td>
+      </tr>
     );
   }
 }

@@ -3,17 +3,31 @@ import WishlistItem from './wishlist-item';
 
 export default class WishlistItems extends Component {
   render() {
-    const { items } = this.props;
+    const { items, user, onVoteUp } = this.props;
     const itemsArr = this.convertItemsToArr(items);
 
     return (
-      <div>
-        {
-          itemsArr.map((item, i) => {
-            return <WishlistItem item={item} key={i} />;
-          })
-        }
-      </div>
+      <table className="pure-table pure-table-striped">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Votes</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            itemsArr.map((item, i) => {
+              return (
+                <WishlistItem key={i}
+                              item={item}
+                              user={user}
+                              onVoteUp={onVoteUp} />
+              );
+            })
+          }
+        </tbody>
+      </table>
     );
   }
 
@@ -22,7 +36,9 @@ export default class WishlistItems extends Component {
 
     for (let key in items) {
       if (items.hasOwnProperty(key)) {
-        itemsArr.push(items[key]);
+        itemsArr.push(Object.assign({}, items[key], {
+          key
+        }));
       }
     }
 

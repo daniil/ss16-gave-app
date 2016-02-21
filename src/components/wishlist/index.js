@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getWishlist, addWishlistItem } from 'actions/app-actions';
+import { getWishlist, addWishlistItem, voteUp } from 'actions/app-actions';
 import WishlistItems from './wishlist-items';
+import styles from './styles.scss';
 
 class Wishlist extends Component {
   componentDidMount() {
@@ -14,7 +15,12 @@ class Wishlist extends Component {
 
     return (
       <div>
-        <h1>Wishlist</h1>
+        <h2>
+          Wishlist for
+          <span className={styles.wishlistId}>
+            {params.wishlistId}
+          </span>
+        </h2>
         {
           !app.currentWishlist &&
           <div>
@@ -31,7 +37,9 @@ class Wishlist extends Component {
         </form>
         {
           app.currentWishlist &&
-          <WishlistItems items={app.currentWishlist.items} />
+          <WishlistItems items={app.currentWishlist.items}
+                         user={app.loggedInUser}
+                         onVoteUp={::this.onVoteUp} />
         }
       </div>
     );
@@ -45,10 +53,19 @@ class Wishlist extends Component {
         userId: app.loggedInUser.uid,
         title: this.refs.wishlistItem.value,
         voteCount: 1,
-        status: 0
+        status: 0,
+        voters: {
+          [app.loggedInUser.uid]: true
+        }
       }));
+      this.refs.wishlistItem.value = '';
       e.preventDefault();
     }
+  }
+
+  onVoteUp(wishlistItemKey) {
+    const { dispatch, app } = this.props;
+    dispatch(voteUp(this.props.params.wishlistId, app.loggedInUser.uid, wishlistItemKey));
   }
 }
 
