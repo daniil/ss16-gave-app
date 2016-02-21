@@ -1,3 +1,11 @@
+.welcomeBlurb {
+  padding: 20px 10%;
+
+  > p {
+    line-height: 1.5;
+  }
+}
+
 .welcomePage {
   background-image: url('static/home_bg.png');
   background-size: cover;

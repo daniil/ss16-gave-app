@@ -56,4 +56,8 @@
   color:#fff;
   margin-left:5px;
   display:inline-block;
+
+  &:hover {
+    color: darken(#fff, 20%);
+  }
 }

@@ -10,7 +10,8 @@ export default class TopNav extends Component {
 
     return (
       <div className={classnames(baseStyles.topNav)}>
-        <h1 className={ classnames(baseStyles.logo)}>Gave</h1>
+        <h1 className={ classnames(baseStyles.logo)}
+            onClick={::this.goHome}>Gave</h1>
         {
           app.isAuthenticated &&
           <WishlistSearch onWishlistSearch={::this.onWishlistSearch} />
@@ -22,5 +23,10 @@ export default class TopNav extends Component {
   onWishlistSearch(val) {
     const { dispatch } = this.props;
     dispatch(routeActions.push(`/wishlists/${val}`));
+  }
+
+  goHome() {
+    const { dispatch } = this.props;
+    dispatch(routeActions.push('/'));
   }
 }

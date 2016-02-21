@@ -35,11 +35,6 @@ class App extends Component {
     );
   }
 
-  goHome() {
-    const { dispatch } = this.props;
-    dispatch(routeActions.push('/'));
-  }
-
   onLogout(e) {
     const { dispatch } = this.props;
     dispatch(logoutUser());
