@@ -5,6 +5,7 @@ const fbRef = new Firebase('https://ss16-gave-app.firebaseio.com/');
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 export const RECEIVE_WISHLIST = 'RECEIVE_WISHLIST';
+export const RECEIVE_STATUS_TYPES = 'RECEIVE_STATUS_TYPES';
 
 export function bootstrapApp() {
   return (dispatch) => {
@@ -18,11 +19,7 @@ export function bootstrapApp() {
     } else {
       dispatch(logoutUser());
     }
-    fbRef.child('status').set({
-      0: 'for grabs',
-      1: 'dibbs',
-      2: 'taken'
-    });
+    setStatusTypes(dispatch);
   };
 }
 
@@ -85,4 +82,18 @@ export function voteUp(wishlistId, userId, wishlistItemKey) {
 
 function saveUser(authData) {
   fbRef.child(`users/${authData.uid}`).set(authData.facebook);
+}
+
+function setStatusTypes(dispatch) {
+  const statusTypes = {
+    0: 'For grabs',
+    1: 'Dibbs',
+    2: 'Taken'
+  };
+  fbRef.child('status').set(statusTypes, () => {
+    dispatch({
+      type: RECEIVE_STATUS_TYPES,
+      statusTypes
+    });
+  });
 }

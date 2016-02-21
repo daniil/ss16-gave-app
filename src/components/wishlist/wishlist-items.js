@@ -3,7 +3,7 @@ import WishlistItem from './wishlist-item';
 
 export default class WishlistItems extends Component {
   render() {
-    const { items, user, onVoteUp } = this.props;
+    const { items, statusTypes, user, onVoteUp } = this.props;
     const itemsArr = this.convertItemsToArr(items);
 
     return (
@@ -13,6 +13,7 @@ export default class WishlistItems extends Component {
             <th>Item</th>
             <th>Votes</th>
             <th></th>
+            <th>Status</th>
           </tr>
         </thead>
         <tbody>
@@ -21,6 +22,7 @@ export default class WishlistItems extends Component {
               return (
                 <WishlistItem key={i}
                               item={item}
+                              statusTypes={statusTypes}
                               user={user}
                               onVoteUp={onVoteUp} />
               );
