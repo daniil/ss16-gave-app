@@ -76,6 +76,25 @@ input[type="text"] {
   color:#fff;
 }
 
+ul {
+  width:80%;
+  margin:0 auto;
+}
+
+li {
+  width:100%;
+  background-color:#F8F8F8;
+  border:1px solid #D3D3D3;
+  border-radius:10px;
+  list-style: none;
+  padding:10px 15px;
+  margin-top:10px;
+}
+
+li span {
+  display:inline-block;
+}
+
 .header h1 {
   padding-left:1rem;
   padding-bottom:1rem;

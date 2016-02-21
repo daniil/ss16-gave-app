@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { getWishlist, addWishlistItem, voteUp, changeWishlistItemStatus } from 'actions/app-actions';
 import WishlistItems from './wishlist-items';
 import styles from './styles.scss';
+import classnames from 'classnames';
 
 class Wishlist extends Component {
   componentDidMount() {
@@ -21,8 +22,8 @@ class Wishlist extends Component {
     const { app, params } = this.props;
 
     return (
-      <div>
-        <h2>
+      <div className={ classnames(styles.wishlistContainer)}>
+        <h2 className={classnames(styles.wishlistTitle)}>
           Wishlist for
           <span className={styles.wishlistId}>
             {params.wishlistId}
@@ -35,8 +36,8 @@ class Wishlist extends Component {
             <p>Be the first to add one below</p>
           </div>
         }
-        <form className="pure-form">
-          <input className="pure-input-1"
+        <form className={classnames("pure-form", styles.addNewForm)}>
+          <input className={classnames("pure-input-1", styles.addNewInput)}
                  type="text"
                  ref="wishlistItem"
                  placeholder="Add a new wishlist item"
