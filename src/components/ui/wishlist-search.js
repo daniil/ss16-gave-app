@@ -57,6 +57,10 @@ class WishlistSearch extends Component {
     if (e && e.which === 13) {
       if (numberLength >= 5 && numberLength <= 10) {
         onWishlistSearch(this.state.searchValue);
+        this.setState({
+          validated: false,
+          searchValue: ''
+        });
       }
       e.preventDefault();
     }

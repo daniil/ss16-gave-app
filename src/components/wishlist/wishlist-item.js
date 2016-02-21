@@ -5,7 +5,7 @@ import StatusPicker from './status-picker';
 
 export default class WishlistItem extends Component {
   render() {
-    const { item, statusTypes, user, onVoteUp } = this.props;
+    const { item, statusTypes, user, onVoteUp, onStatusChange } = this.props;
 
     return (
       <tr>
@@ -28,7 +28,8 @@ export default class WishlistItem extends Component {
         <td>
           {
             statusTypes && <StatusPicker item={item}
-                                         statusTypes={statusTypes} />
+                                         statusTypes={statusTypes}
+                                         onStatusChange={onStatusChange} />
           }
         </td>
       </tr>
