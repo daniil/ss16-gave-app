@@ -14,12 +14,14 @@ class App extends Component {
   }
 
   render() {
-    const { app, dispatch } = this.props;
+    const { app, location, dispatch } = this.props;
 
     return (
       <div>
         <header className={classnames(
-                  baseStyles.header
+                  baseStyles.header,
+                  {[baseStyles.isHomePage]: location.pathname === '/'},
+                  {[baseStyles.isWishlistPage]: location.pathname.indexOf('wishlists') !== -1}
                 )}>
           <AccountInfo app={app}
                        onLogout={::this.onLogout} />
