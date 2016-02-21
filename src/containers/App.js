@@ -23,8 +23,12 @@ class App extends Component {
                   {[baseStyles.isHomePage]: location.pathname === '/'},
                   {[baseStyles.isWishlistPage]: location.pathname.indexOf('wishlists') !== -1}
                 )}>
-          <AccountInfo app={app}
-                       onLogout={::this.onLogout} />
+          {
+              app.isAuthenticated &&
+              <AccountInfo app={app}
+                           onLogout={::this.onLogout} />
+          }
+
           <TopNav app={app}
                   dispatch={dispatch} />
         </header>

@@ -12,11 +12,16 @@
 
 .voteCountCell {
   text-align: right;
+  padding-right: 5px;
 }
 
 .voteCount {
   color: #727272;
   font-weight: 600;
+}
+
+.noItemsCopy {
+  text-align: center;
 }
 
 .alreadyVoted {
